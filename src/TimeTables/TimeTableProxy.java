@@ -2,14 +2,17 @@ package TimeTables;
 
 import java.util.List;
 
+import Administration.Admin;
+import Employees.Employee;
+
 public class TimeTableProxy implements ITimeTable {
 
 	private TimeTable timeTable;
 	private boolean access;
 	
-	public TimeTableProxy(String key, List<Route> routes) {
-		if(key=="ABCD") {
-			this.timeTable = new TimeTable(routes);
+	public TimeTableProxy(Admin admin, List<Route> routes) {
+		this.timeTable = new TimeTable(routes);
+		if(admin != null) {
 			access=true;
 		}
 		else {
@@ -17,11 +20,23 @@ public class TimeTableProxy implements ITimeTable {
 		}
 	}
 	
+	public TimeTableProxy(Employee employee, List<Route> routes) {
+		this.timeTable = new TimeTable(routes);
+		if(employee != null) {
+			access=true;
+		}
+		else {
+			access=false;
+		}
+	}
+	
+	public TimeTableProxy(List<Route> routes) {
+			this.timeTable = new TimeTable(routes);
+			access=false;
+	}
+	
 	public List <Route> getRoutes() throws Exception {
-		if(access)
-			return timeTable.getRoutes();
-		else
-			throw new Exception("You do not have permission.");
+		return timeTable.getRoutes();
 	}
 	
 	public void modifyRoute(int id, Route route) throws Exception {

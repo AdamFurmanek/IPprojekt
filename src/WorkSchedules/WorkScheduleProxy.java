@@ -10,6 +10,7 @@ public class WorkScheduleProxy implements IWorkSchedule {
 	private WorkSchedule workSchedule;
 	private boolean access;
 
+	//Konstruktor pozwalaj¹cy uzyskaæ dostêp adminowi.
 	public WorkScheduleProxy(Admin admin, WorkSchedule workSchedule) {
 		if(admin!=null) {
 			this.workSchedule = workSchedule;
@@ -20,6 +21,7 @@ public class WorkScheduleProxy implements IWorkSchedule {
 		}
 	}
 	
+	//Konstruktor pozwalaj¹cy uzyskaæ dostêp pracownikowi.
 	public WorkScheduleProxy(Employee employee, WorkSchedule workSchedule) {
 		if(employee!=null) {
 			this.workSchedule = workSchedule;

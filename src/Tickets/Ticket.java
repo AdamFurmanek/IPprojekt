@@ -1,17 +1,35 @@
 package Tickets;
 
-import Carriers.Transport;
-import Employees.Cashier;
+import TimeTables.Route;
 
 public class Ticket {
 
-	protected TicketType type;
-	protected Cashier seller;
-	protected Transport transport;
+	private Passenger passenger;
+	private Route route;
+	private String type;
+	private double price;
 	
-	Ticket(TicketType type, Cashier seller, Transport transport){
+	public Ticket(Passenger passenger, Route route, String type, double price) {
+		this.passenger = passenger;
+		this.route = route;
 		this.type = type;
-		this.seller = seller;
-		this.transport = transport;
+		this.price = price;
 	}
+
+	public Passenger getPassenger() {
+		return passenger;
+	}
+
+	public Route getRoute() {
+		return route;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
 }

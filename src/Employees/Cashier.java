@@ -2,7 +2,9 @@
 
 import java.util.Date;
 
-import Tickets.TicketType;
+import Tickets.Passenger;
+import Tickets.Ticket;
+import TimeTables.Route;
 import WorkSchedules.WorkSchedule;
 
 public class Cashier extends Employee {
@@ -11,7 +13,7 @@ public class Cashier extends Employee {
 		this.payment = 1900;
 	}
 	
-	void sellTicket(TicketType ticket) {
-		
+	Ticket sellTicket(Passenger passenger, Route route, String type) {
+		return passenger.buyTicket(route, type);
 	}
 }

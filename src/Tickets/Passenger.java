@@ -1,20 +1,29 @@
 package Tickets;
 
-import java.util.List;
+import TimeTables.Route;
 
 public class Passenger {
 
 	protected String firstName;
 	protected String finalName;
-	protected long telephone;
+	protected String telephone;
 	protected String email;
-	protected List<Ticket> myTickets;
 	
-	Passenger(String firstName, String finalName, long telephone, String email, List<Ticket> myTickets){
+	Passenger(String firstName, String finalName, String telephone, String email){
 		this.firstName = firstName;
 		this.finalName = finalName;
 		this.telephone = telephone;
 		this.email = email;
-		this.myTickets = myTickets;
+	}
+	
+	public Ticket buyTicket(Route route, String type) {
+		if(type=="first") {
+			return new FirstClassStrategy().buyTicket(route, this);
+		}
+		else if(type=="second") {
+			return new SecondClassStrategy().buyTicket(route, this);
+		}
+		else
+			throw new IllegalArgumentException("Bad type of ticket.");
 	}
 }

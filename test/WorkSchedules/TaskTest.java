@@ -15,8 +15,8 @@ public class TaskTest {
 		
 		Assert.assertEquals("Sprz¹tanie peronu 1", task.getDescription());
 		Assert.assertEquals(new Date(2020,04,20,15,30), task.getStartTime());
-		Assert.assertEquals(new Date(2020,04,20,16,45), task.getDeadline());
-		Assert.assertFalse(task.getDone());
+		Assert.assertEquals(new Date(2020,04,20,16,45), task.getEndTime());
+		Assert.assertFalse(task.getIsDone());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)

@@ -4,23 +4,26 @@ import java.util.Date;
 
 public class Task {
 
+	//Task jest obiektem niezmiennym.
+	//Aby go zmodyfikowaæ, nale¿y podmieniæ stary obiekt nowym obiektem.
+	
 	private String description;
 	private Date startTime;
-	private Date deadline;
-	private boolean done;
+	private Date endTime;
+	private boolean isDone;
 	
-	public Task(String description, Date startTime, Date deadline, boolean done) {
+	public Task(String description, Date startTime, Date endTime, boolean isDone) {
 		if(startTime==null)
 			throw new IllegalArgumentException("StartTime can not be null.");
-		if(deadline==null)
-			throw new IllegalArgumentException("Deadline can not be null.");
-		if(startTime.getTime()>deadline.getTime())
-			throw new IllegalArgumentException("StartTime can not be after deadline.");
+		if(endTime==null)
+			throw new IllegalArgumentException("EndTime can not be null.");
+		if(startTime.getTime()>endTime.getTime())
+			throw new IllegalArgumentException("StartTime can not be after endTime.");
 		
 		this.description = description;
 		this.startTime = startTime;
-		this.deadline = deadline;
-		this.done = done;
+		this.endTime = endTime;
+		this.isDone = isDone;
 	}
 
 	public String getDescription() {
@@ -31,12 +34,12 @@ public class Task {
 		return startTime;
 	}
 
-	public Date getDeadline() {
-		return deadline;
+	public Date getEndTime() {
+		return endTime;
 	}
 	
-	public boolean getDone() {
-		return done;
+	public boolean getIsDone() {
+		return isDone;
 	}
 	
 }

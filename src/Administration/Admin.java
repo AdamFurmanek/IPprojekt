@@ -8,7 +8,7 @@ public class Admin {
 	private String name;
 	
 	
-	Admin(String name){
+	public Admin(String name){
 		this.name = name;
 	}
 	
