@@ -13,7 +13,11 @@ public class Cashier extends Employee {
 		this.payment = 1900;
 	}
 	
-	Ticket sellTicket(Passenger passenger, Route route, String type) {
+	Ticket sellTicket(Route route, String type) {
+		//Metoda używana gdy klient przychodzi do kasjera i chce kupić bilet.
+		//Kasjer prosi klienta o dane (tworzy się obiekt klasy Passenger)
+		// i nowo utworzony obiekt wywołuje metodę kupna biletu.
+		Passenger passenger = new Passenger("Imię", "Nazwisko", "telefon","email");
 		return passenger.buyTicket(route, type);
 	}
 }

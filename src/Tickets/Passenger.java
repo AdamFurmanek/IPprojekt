@@ -9,7 +9,7 @@ public class Passenger {
 	protected String telephone;
 	protected String email;
 	
-	Passenger(String firstName, String finalName, String telephone, String email){
+	public Passenger(String firstName, String finalName, String telephone, String email){
 		this.firstName = firstName;
 		this.finalName = finalName;
 		this.telephone = telephone;

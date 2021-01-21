@@ -1,8 +1,14 @@
 package Employees;
 
 import java.util.Date;
+import java.util.List;
 
+import TimeTables.Route;
+import TimeTables.TimeTable;
+import TimeTables.TimeTableProxy;
+import WorkSchedules.Task;
 import WorkSchedules.WorkSchedule;
+import WorkSchedules.WorkScheduleProxy;
 
 public class Employee {
 	protected String firstName;
@@ -25,16 +31,20 @@ public class Employee {
 	void checkWorkSchedule() {
 		System.out.println("Zadania do zrobienia:");
 		for(int i=0; i<workSchedule.getSchedule().size(); i++) {
-			System.out.println("\t- " + workSchedule.getSchedule().get(i).getDescription() + "\n");
+			System.out.println("\t- "+ workSchedule.getSchedule().get(i).getDescription()+"\n");
 		}
 	}
 	
-	void confirmExecution() {
-		
+	void confirmExecution(Task done) throws Exception {
+		WorkScheduleProxy account = new WorkScheduleProxy(this,workSchedule);
+		List<Task> currentTasks = account.getSchedule();
+		//znajdywanie taska i ustawienie boolean done na true po znalezieniu go
 	}
 	
-	void checkTimetable() {
-		
+	void checkTimetable(TimeTable tt) throws Exception {
+		TimeTableProxy checker = new TimeTableProxy(tt.getRoutes());
+		List<Route> routes = checker.getRoutes();
+		//iteracja wyœwietlaj¹ca wszystkie instancje rozk³adu uzyskanego przez proxy
 	}
 	
 }
