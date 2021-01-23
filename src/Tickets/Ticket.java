@@ -10,6 +10,10 @@ public class Ticket {
 	private double price;
 	
 	public Ticket(Passenger passenger, Route route, String type, double price) {
+		if(type==null)
+			throw new IllegalArgumentException("type can not be null.");
+		if(price<=0)
+			throw new IllegalArgumentException("price can not be lower than 0.");
 		this.passenger = passenger;
 		this.route = route;
 		this.type = type;

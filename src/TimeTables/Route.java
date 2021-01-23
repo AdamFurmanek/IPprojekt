@@ -1,6 +1,7 @@
 package TimeTables;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import Carriers.Carrier;
 
@@ -12,7 +13,7 @@ public class Route implements Comparable<Route> {
 	private String platform;
 	private int numberOfStations;
 	
-	public Route(Carrier carrier, String trainName, int numberOfCarriages, Date date, String platform, int numberOfStations) {
+	public Route(Carrier carrier, String trainName, Date date, String platform, int numberOfStations) {
 		this.carrier = carrier;
 		this.trainName = trainName;
 		this.date = date;

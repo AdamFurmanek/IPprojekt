@@ -12,6 +12,8 @@ public class WorkScheduleProxy implements IWorkSchedule {
 
 	//Konstruktor pozwalaj¹cy uzyskaæ dostêp adminowi.
 	public WorkScheduleProxy(Admin admin, WorkSchedule workSchedule) {
+		if(workSchedule==null)
+			throw new IllegalArgumentException("WorkSchedule can not be null.");
 		if(admin!=null) {
 			this.workSchedule = workSchedule;
 			access=true;
@@ -23,6 +25,8 @@ public class WorkScheduleProxy implements IWorkSchedule {
 	
 	//Konstruktor pozwalaj¹cy uzyskaæ dostêp pracownikowi.
 	public WorkScheduleProxy(Employee employee, WorkSchedule workSchedule) {
+		if(workSchedule==null)
+			throw new IllegalArgumentException("WorkSchedule can not be null.");
 		if(employee!=null) {
 			this.workSchedule = workSchedule;
 			access=true;
@@ -34,7 +38,10 @@ public class WorkScheduleProxy implements IWorkSchedule {
 
 	public List<Task> getSchedule() throws Exception {
 		if(access)
-			return workSchedule.getSchedule();
+			if(workSchedule.getSchedule().isEmpty())
+				throw new Exception("Work schedule empty.");
+			else
+				return workSchedule.getSchedule();
 		else
 			throw new Exception("You do not have permission.");
 	}

@@ -10,6 +10,15 @@ public class Passenger {
 	protected String email;
 	
 	public Passenger(String firstName, String finalName, String telephone, String email){
+		if(firstName==null)
+			throw new IllegalArgumentException("firstName can not be null.");
+		if(finalName==null)
+			throw new IllegalArgumentException("finalName can not be null.");
+		if(telephone==null)
+			throw new IllegalArgumentException("telephone can not be null.");
+		if(email==null)
+			throw new IllegalArgumentException("email can not be null.");
+		
 		this.firstName = firstName;
 		this.finalName = finalName;
 		this.telephone = telephone;
@@ -25,5 +34,21 @@ public class Passenger {
 		}
 		else
 			throw new IllegalArgumentException("Bad type of ticket.");
+	}
+	
+	public String getfirstName() {
+		return firstName;
+	}
+	
+	public String getfinalName() {
+		return finalName;
+	}
+	
+	public String getTelephone() {
+		return telephone;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 }

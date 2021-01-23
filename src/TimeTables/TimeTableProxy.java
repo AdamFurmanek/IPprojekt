@@ -36,6 +36,8 @@ public class TimeTableProxy implements ITimeTable {
 	}
 	
 	public List <Route> getRoutes() throws Exception {
+		if(timeTable.getRoutes().isEmpty())
+			throw new Exception("Time table empty.");
 		return timeTable.getRoutes();
 	}
 	

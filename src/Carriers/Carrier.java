@@ -1,44 +1,17 @@
 package Carriers;
 
-import TimeTables.Route;
 
 public class Carrier {
 
-	protected String name;
+	private String name;
 	
-	Carrier(String name){
+	public Carrier(String name){
+		if(name==null)
+			throw new IllegalArgumentException("firstname can not be null.");
 		this.name = name;
 	}
-	
-	void orderCargoLoading(){
-		
-	}
-	
-	void orderCargoUnloading() {
-		
-	}
-	
-	Route setRoute(){
-		return null;
-	}
-	
-	Route modifyRoute(Route route) {
-		return null;
-	}
-	
-	void orderService() {
-		
-	}
-	
-	void informAboutArrival() {
-		
-	}
-	
-	void informAboutLatency() {
-		
-	}
-	
-	void manageTickets() {
-		
+
+	public String getName() {
+		return name;
 	}
 }

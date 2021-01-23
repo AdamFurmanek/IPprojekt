@@ -42,4 +42,13 @@ public class Task {
 		return isDone;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj != null && obj instanceof Task) {
+			Task another = (Task)obj;
+			return this.description.equals(another.description) && this.startTime.equals(another.startTime) && this.endTime.equals(another.endTime);
+		}
+		else return false;
+	}
+	
 }
